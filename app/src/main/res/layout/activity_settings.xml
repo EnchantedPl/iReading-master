@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:leon="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_material_light"
+    android:orientation="vertical">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        app:contentInsetStart="0dp">
+
+        <LinearLayout
+            android:id="@+id/backLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingEnd="50dp">
+
+            <ImageButton
+                android:id="@+id/back"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_gravity="start"
+                android:layout_marginStart="0dp"
+                android:background="@null"
+                android:contentDescription="Back"
+                android:padding="1dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/back" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:paddingBottom="2dp"
+                android:text="返回"
+                android:textColor="@color/white"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/toolbar_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="设置"
+            android:textColor="@color/colorWhite"
+            android:textSize="20sp" />
+    </androidx.appcompat.widget.Toolbar>
+
+    <com.leon.lib.settingview.LSettingItem
+        android:id="@+id/item_number"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        leon:isShowRightText="true"
+        leon:isShowUnderLine="false"
+        leon:leftText="修改刷新/加载的数量"
+        />
+    <com.leon.lib.settingview.LSettingItem
+        android:id="@+id/item_fetch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        leon:isShowRightText="true"
+        leon:isShowUnderLine="false"
+        leon:leftText="修改查词的联网策略"
+        />
+
+    <com.leon.lib.settingview.LSettingItem
+        android:id="@+id/item_page"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        leon:isShowRightText="true"
+        leon:isShowUnderLine="false"
+        leon:leftText="修改默认启动页"
+
+        />
+
+    <com.leon.lib.settingview.LSettingItem
+        android:id="@+id/item_apikey"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        leon:isShowRightText="true"
+        leon:isShowUnderLine="false"
+        leon:leftText="修改API-KEY" />
+    <com.leon.lib.settingview.LSettingItem
+        android:id="@+id/item_clear_history"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="10dp"
+        leon:isShowRightText="true"
+        leon:isShowUnderLine="false"
+        leon:leftText="清除历史浏览"
+
+        />
+    <com.leon.lib.settingview.LSettingItem
+        android:id="@+id/item_one"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        leon:isShowRightText="true"
+        leon:isShowUnderLine="false"
+        leon:leftText="清除缓存"
+
+        />
+</LinearLayout>

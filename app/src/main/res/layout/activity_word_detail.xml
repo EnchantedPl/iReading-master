@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/content"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_material_light"
+    android:orientation="vertical">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:fitsSystemWindows="true"
+        app:contentInsetStart="0dp"
+        app:contentInsetStartWithNavigation="0dp">
+        <!--make this size bigger for touch-->
+        <LinearLayout
+            android:id="@+id/backLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingEnd="50dp">
+
+            <ImageButton
+                android:id="@+id/back"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_gravity="start"
+                android:layout_marginStart="0dp"
+                android:background="@null"
+                android:contentDescription="Back"
+                android:padding="1dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/back" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:paddingBottom="2dp"
+                android:text="返回"
+                android:textColor="@color/white"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|center"
+            android:paddingBottom="2dp"
+            android:textColor="@color/white"
+            android:textSize="22sp" />
+
+        <com.iReadingGroup.iReading.ToggledImageView
+            android:id="@+id/collect_word_button"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true"
+            android:layout_gravity="end"
+            android:layout_marginEnd="5dp"
+            android:background="@null"
+            android:contentDescription="Collect this Word"
+            android:padding="1dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/collect_false"
+            android:textSize="20sp" />
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/scroll"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:fillViewport="false"
+        android:orientation="vertical"
+        android:padding="0dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:descendantFocusability="blocksDescendants"
+            android:orientation="vertical">
+            <!--Online Fold Title-->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#FFFFFF">
+
+                <TextView
+                    android:id="@+id/expand_iciba"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:background="#EBEBEB"
+                    android:padding="10dp"
+                    android:text="金山词霸"
+                    android:textColor="@color/black"
+                    android:textColorHighlight="#EBEBEB"
+                    android:textSize="15sp" />
+
+
+                <ImageView
+                    android:id="@+id/arrow_iciba"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="10dp"
+                    android:src="@drawable/arrow_up" />
+
+            </RelativeLayout>
+
+            <!--Online Result-->
+            <net.cachapa.expandablelayout.ExpandableLayout
+                android:id="@+id/expandable_iciba"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                app:el_duration="200"
+                app:el_expanded="true"
+                app:el_parallax="0">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:descendantFocusability="blocksDescendants"
+                    android:orientation="vertical">
+
+
+                    <TextView
+                        android:id="@+id/word_online"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="10dp"
+                        android:textColor="@color/md_blue_900"
+                        android:textSize="20sp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="5dp"
+                        android:background="@color/colorPrimary" />
+
+                    <LinearLayout
+                        android:id="@+id/proView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:visibility="gone">
+
+
+                        <TextView
+                            android:id="@+id/pron_1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:fontFamily="font/gwipa"
+                            android:textColor="@color/md_blue_900"
+                            android:textSize="15sp"
+                            android:visibility="gone" />
+
+                        <ImageButton
+                            android:id="@+id/voice_1"
+                            android:layout_width="22dp"
+                            android:layout_height="22dp"
+                            android:layout_gravity="center"
+                            android:layout_marginStart="2dp"
+                            android:background="@color/transparent"
+                            android:contentDescription="Play British Style Pronunciation"
+                            android:scaleType="fitXY"
+                            android:src="@drawable/read"
+                            android:visibility="gone" />
+
+                        <TextView
+                            android:id="@+id/pron_2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:fontFamily="font/gwipa"
+                            android:textColor="@color/md_blue_900"
+                            android:textSize="15sp"
+                            android:visibility="gone" />
+
+                        <ImageButton
+                            android:id="@+id/voice_2"
+                            android:layout_width="22dp"
+                            android:layout_height="22dp"
+                            android:layout_gravity="center"
+                            android:layout_marginStart="2dp"
+                            android:background="@color/transparent"
+                            android:contentDescription="Play American Style Pronunciation"
+                            android:scaleType="fitXY"
+                            android:src="@drawable/read"
+                            android:visibility="gone" />
+
+                    </LinearLayout>
+
+
+                    <WebView
+                        android:id="@+id/wv"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingEnd="10dp"
+                        android:paddingStart="10dp"
+                        android:visibility="invisible" />
+
+
+                </LinearLayout>
+            </net.cachapa.expandablelayout.ExpandableLayout>
+
+            <!--Offline Fold Title-->
+            <RelativeLayout
+                android:id="@+id/title_offline"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#FFFFFF"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/expand_offline"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:background="#EBEBEB"
+                    android:padding="10dp"
+                    android:text="离线词典"
+                    android:textColor="@color/black"
+                    android:textColorHighlight="#EBEBEB"
+                    android:textSize="15sp" />
+
+
+                <ImageView
+                    android:id="@+id/arrow_offline"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="10dp"
+                    android:src="@drawable/arrow_up" />
+
+            </RelativeLayout>
+            <!--Offline Result-->
+            <net.cachapa.expandablelayout.ExpandableLayout
+                android:id="@+id/expandable_offline"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                app:el_duration="200"
+                app:el_expanded="true"
+                app:el_parallax="0">
+
+                <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/word_offline"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="10dp"
+                        android:textColor="@color/md_blue_900"
+                        android:textSize="20sp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="5dp"
+                        android:background="@color/colorPrimary" />
+
+                    <TextView
+                        android:id="@+id/word_meaning"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:textColor="@color/black"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/word_sentence"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:textColor="@color/black"
+                        android:textSize="18sp" />
+
+                </LinearLayout>
+
+            </net.cachapa.expandablelayout.ExpandableLayout>
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

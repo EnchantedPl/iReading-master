@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/card_view"
+    android:layout_width="match_parent"
+    android:layout_height="100dp"
+    android:layout_gravity="center"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"
+    card_view:cardBackgroundColor="@color/white"
+    card_view:cardCornerRadius="4dp"
+    card_view:cardElevation="2dp"
+    card_view:cardUseCompatPadding="true"
+    >
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/parent_layout"
+        >
+        <ImageView
+            android:layout_margin="8dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:id="@+id/logo"
+            android:src="@drawable/radio"
+            />
+        <ImageView
+            android:id="@+id/flag"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_toRightOf="@id/logo"
+            android:layout_marginLeft="2dp"
+            android:layout_marginTop="8dp"
+            android:src="@drawable/flag_us"
+            />
+        <TextView
+            android:id="@+id/stationTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/flag"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
+            android:textSize="20sp"
+            android:textColor="@color/colorBlack"
+            android:text="Station Title"
+            />
+        <TextView
+            android:id="@+id/description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/logo"
+            android:layout_below="@id/flag"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginLeft="2dp"
+            android:layout_marginRight="8dp"
+            android:textSize="14sp"
+            android:text="Station description ..."
+            />
+
+        <View
+            android:id="@+id/divider"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="8dp"
+
+            />
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>
